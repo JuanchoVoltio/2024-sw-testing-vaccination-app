@@ -1,6 +1,5 @@
 package edu.softwaretesting2.dummymavenapp.vaccination_app;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,13 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     private final HelloService service;
-    @Autowired
-    HelloController(HelloService service){
+
+    // Constructor para la inyección de dependencias del servicio
+    public HelloController(HelloService service) {
         this.service = service;
     }
 
-    @GetMapping
-    String sayHello(){
+    // Definir una ruta explícita para este controlador
+    @GetMapping("/hello")
+    public String sayHello() {
         return service.sayHello("ES") + "\n";
     }
 }
