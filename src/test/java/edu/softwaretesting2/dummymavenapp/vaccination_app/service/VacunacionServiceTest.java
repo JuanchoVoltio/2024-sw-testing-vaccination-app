@@ -9,6 +9,14 @@ import java.time.LocalDate;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class VacunacionServiceTest {
 
+    public boolean validarEdadPciente(Paciente paciente){
+        LocalDate fechaNacimiento = paciente.getFechadeNacimiento();
+        LocalDate fechaActual = LocalDate.now();
+        int edad = Period.between(fechaNacimiento, fechaActual).getYears();
+
+        return edad > 60;
+    }
+    
     Paciente persona1;
     Paciente personaPrioritaria;
 
