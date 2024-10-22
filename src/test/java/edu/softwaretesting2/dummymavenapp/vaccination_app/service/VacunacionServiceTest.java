@@ -9,6 +9,14 @@ import java.time.LocalDate;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class VacunacionServiceTest {
 
+    public boolean validarEdadPciente(Paciente paciente){
+        LocalDate fechaNacimiento = paciente.getFechadeNacimiento();
+        LocalDate fechaActual = LocalDate.now();
+        int edad = Period.between(fechaNacimiento, fechaActual).getYears();
+
+        return edad > 60;
+    }
+    
     Paciente persona1;
     Paciente personaPrioritaria;
 
@@ -43,5 +51,27 @@ class VacunacionServiceTest {
 
         //THEN
         Assertions.assertTrue(respuesta);
+    }
+}
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import java.time.LocalDate;
+
+public class VacunacionServiceTest {
+
+    @Test
+    public void deberíaDefinirComoPrioritariaAUnaPersonaDeMasDe60Años() {
+        // GIVEN
+        LocalDate fechaActual = LocalDate.now();
+        LocalDate fechaDeNacimiento = fechaActual.minusYears(65); // Persona de 65 años
+        Persona personaPrioritaria = new Persona("Juan Perez", fechaDeNacimiento);
+        VacunacionService servicio = new VacunacionService();
+
+        // WHEN
+        boolean esPrioritaria = servicio.validarLaEdadDelPaciente(personaPrioritaria);
+
+        // THEN
+        Assertions.assertTrue(esPrioritaria, "La persona debería ser prioritaria por tener más de 60 años");
     }
 }
