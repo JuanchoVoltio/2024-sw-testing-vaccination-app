@@ -3,8 +3,9 @@ package edu.softwaretesting2.dummymavenapp.vaccination_app.service;
 import edu.softwaretesting2.dummymavenapp.vaccination_app.model.Paciente;
 import org.junit.jupiter.api.*;
 
-import javax.lang.model.util.AbstractAnnotationValueVisitor6;
+
 import java.time.LocalDate;
+
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class VacunacionServiceTest {
@@ -35,13 +36,20 @@ class VacunacionServiceTest {
     @Test
     public void deberíaDefinirComoPriotitariaAUnaPersonaDeMasDe60Años(){
         //GIVEN
+<<<<<<< HEAD
     LocalDate fechaActual = LocalDate.now();
         VacunacionService servicio = new VacunacionService();
 
         //WHEN
         respuesta = servicio.validarLaEdadDelPaciente(personaPrioritaria);
+=======
+    VacunacionService servicio = new VacunacionService();
+
+        //WHEN
+    boolean respuesta = servicio.validarLaEdadDelPaciente(personaPrioritaria);
+>>>>>>> ee4abaefc5aae930cfceb18a681b73adc748e901
 
         //THEN
-        Assertions.assertTrue(respuesta);
-    }
+    Assertions.assertTrue(respuesta);
+}
 }
