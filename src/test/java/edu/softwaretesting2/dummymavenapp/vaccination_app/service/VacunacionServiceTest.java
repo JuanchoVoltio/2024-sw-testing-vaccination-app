@@ -36,20 +36,14 @@ class VacunacionServiceTest {
     @Test
     public void deberíaDefinirComoPriotitariaAUnaPersonaDeMasDe60Años(){
         //GIVEN
-<<<<<<< HEAD
-    LocalDate fechaActual = LocalDate.now();
+
+        LocalDate fechaActual = LocalDate.now();
         VacunacionService servicio = new VacunacionService();
 
         //WHEN
-        respuesta = servicio.validarLaEdadDelPaciente(personaPrioritaria);
-=======
-    VacunacionService servicio = new VacunacionService();
-
-        //WHEN
-    boolean respuesta = servicio.validarLaEdadDelPaciente(personaPrioritaria);
->>>>>>> ee4abaefc5aae930cfceb18a681b73adc748e901
+        boolean respuesta = servicio.validarLaEdadDelPaciente(personaPrioritaria);
 
         //THEN
-    Assertions.assertTrue(respuesta);
+        Assertions.assertTrue(respuesta);
 }
 }
