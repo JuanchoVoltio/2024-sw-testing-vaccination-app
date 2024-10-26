@@ -11,6 +11,7 @@ class VacunacionServiceTest {
 
     Paciente persona1;
     Paciente personaPrioritaria;
+    boolean respuesta;
 
     @BeforeAll
     void init(){
