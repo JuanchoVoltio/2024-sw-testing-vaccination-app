@@ -1,5 +1,6 @@
 package edu.softwaretesting2.dummymavenapp.vaccination_app.model;
 
+import edu.softwaretesting2.dummymavenapp.vaccination_app.service.VacunacionService;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ public class Paciente {
     public Paciente(String nombre, LocalDate fechaDeNacimiento) {
         this.setNombre(nombre);
         this.setFechaDeNacimiento(fechaDeNacimiento);
+        this.prioritario = new VacunacionService().validarLaEdadDelPaciente(this);
     }
 
     public String getNombre() {
@@ -56,9 +58,11 @@ public class Paciente {
         Paciente paciente = obtenerPaciente(nombre);
         if (paciente != null) {
             paciente.fechaDeNacimiento = nuevaFechaNacimiento;
-            paciente.prioritario = paciente.calcularPrioridad();
+            // Actualiza el campo 'prioritario' usando VacunacionService
+            paciente.prioritario = new VacunacionService().validarLaEdadDelPaciente(paciente);
         }
     }
+
 
     public static void eliminarPaciente(String nombre) {
         pacientes.removeIf(p -> p.getNombre().equals(nombre));
