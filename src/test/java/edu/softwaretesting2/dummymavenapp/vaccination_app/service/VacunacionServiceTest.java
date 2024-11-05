@@ -11,16 +11,15 @@ import edu.softwaretesting2.dummymavenapp.vaccination_app.model.Paciente;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class VacunacionServiceTest {
-
+ 
     Paciente persona1;
     Paciente personaPrioritaria;
 
     @BeforeAll
     void init(){
-        persona1 = new Paciente("NN", LocalDate.of(1986, 12, 24));
-        personaPrioritaria = new Paciente("Bla", LocalDate.of(1963, 12, 24)); // Esta persona tiene más de 60 años
+        persona1 = new Paciente("NN", LocalDate.of(1986, 12, 24), false, "36");
+        personaPrioritaria =  new Paciente("Bla", LocalDate.of(1963, 12, 24), true, "61");
     }
-
     @Test
     public void deberíaDefinirComoPriotitariaAUnaPersonaDeMasDe60Años(){
         //GIVEN
