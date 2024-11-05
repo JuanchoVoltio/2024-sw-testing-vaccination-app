@@ -6,8 +6,8 @@ public class Main {
         Basededatos baseDeDatos = new Basededatos();
 
         // Crear y agregar pacientes con los nuevos atributos
-        baseDeDatos.agregarPaciente(new Paciente("Juan Pérez", LocalDate.of(1993, 5, 20), true, "30"));
-        baseDeDatos.agregarPaciente(new Paciente("María Gómez", LocalDate.of(1998, 11, 15), false, "25"));
+        baseDeDatos.agregarPaciente(new Paciente("Juan Pérez", LocalDate.of(1993, 5, 20), true, 30));
+        baseDeDatos.agregarPaciente(new Paciente("María Gómez", LocalDate.of(1998, 11, 15), false, 25));
 
         // Mostrar todos los pacientes
         System.out.println("Pacientes en la base de datos:");

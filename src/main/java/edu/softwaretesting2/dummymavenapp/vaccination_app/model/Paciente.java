@@ -7,10 +7,10 @@ public class Paciente {
     private String nombre;
     private LocalDate fechaDeNacimiento;
     private boolean prioritario;
-    private String edad;
+    private int edad;
 
     // Constructor para inicializar el nombre y la fecha de nacimiento
-    public Paciente(String nombre, LocalDate fechaDeNacimiento , boolean prioritario,String edad) {
+    public Paciente(String nombre, LocalDate fechaDeNacimiento , boolean prioritario,int edad) {
         this.setNombre(nombre);
         this.setFechaDeNacimiento(fechaDeNacimiento);
         this.prioritario = prioritario;

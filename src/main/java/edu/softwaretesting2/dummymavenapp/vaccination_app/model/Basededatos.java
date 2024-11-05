@@ -1,5 +1,7 @@
 package edu.softwaretesting2.dummymavenapp.vaccination_app.model;
 
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,19 +17,15 @@ public class Basededatos {
     public void agregarPaciente(Paciente paciente) {
         pacientes.add(paciente);
     }
+    // Método para mostrar todos los pacientes (solo imprime)
 
-    // Método para mostrar todos los pacientes
-    public void mostrarPacientes() {
-        for (Paciente paciente : pacientes) {
-            System.out.println(paciente);
-        }
+
+    // Método para obtener todos los pacientes (devuelve la lista)
+    public List<Paciente> obtenerPacientes() {
+        return pacientes; // Devuelve la lista de pacientes
     }
 
     // Método para buscar un paciente por nombre
-    /**
-     * @param nombre
-     * @return
-     */
     public Paciente buscarPacientePorNombre(String nombre) {
         for (Paciente paciente : pacientes) {
             if (paciente.getNombre().equalsIgnoreCase(nombre)) {
@@ -46,4 +44,10 @@ public class Basededatos {
         }
         return false; // No encontrado
     }
+
+// Método para mostrar todos los pacientes (ajustado para retornar la lista)
+public List<Paciente> mostrarPacientes() {
+    return pacientes; // Retorna la lista de pacientes
+}
+
 }
