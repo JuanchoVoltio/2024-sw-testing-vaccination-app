@@ -5,9 +5,12 @@ import edu.softwaretesting2.dummymavenapp.vaccination_app.model.Paciente;
 import java.time.LocalDate;
 
 public class VacunacionService {
-    public void validarLaEdadDelPaciente(Paciente p) {
-        LocalDate fechaLímite = LocalDate.now().minusYears(60);
-
-        p.setPrioritario(p.getFechaDeNacimiento().isBefore(fechaLímite));
+    public boolean validarLaEdadDelPaciente(Paciente p) {
+        //definir como prioritaria si su fecha de nacimiento es antes de hace 60 años 
+        boolean esEprioritario = p.getFechaDeNacimiento().isBefore(fechaLimite);
+        p.setPrioritario(esPrioritario); //si aun necesitamos establecer el estado en el objeto paciente
+        
+        return esPrioritario;
+        
     }
 }
