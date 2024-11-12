@@ -4,13 +4,23 @@ import java.time.LocalDate;
 
 public class Paciente {
 
+    private  int id;
     private String nombre;
     private LocalDate fechaDeNacimiento;
     private boolean prioritario;
 
-    public Paciente(String nombre, LocalDate fechaDeNacimiento) {
+    public Paciente(int id, String nombre, LocalDate fechaDeNacimiento) {
+        this.setId(id);
         this.setNombre(nombre);
         this.setFechaDeNacimiento(fechaDeNacimiento);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -35,5 +45,14 @@ public class Paciente {
 
     public void setPrioritario(boolean priotario) {
         this.prioritario = priotario;
+    }
+
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "nombre='" + nombre + '\'' +
+                ", fechaDeNacimiento=" + fechaDeNacimiento +
+                ", prioritario=" + prioritario +
+                '}';
     }
 }
